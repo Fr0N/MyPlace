@@ -1,0 +1,156 @@
+<div class="container">
+        <br/>
+        <div class="jumbotron">
+            <form (ngSubmit)="edit()" #editForm="ngForm">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <h2>Edit Profile</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i> First Name: {{oldModel.firstName}}</span>
+                                </div>
+                                <input type="text" [(ngModel)]="model.firstName" name="firstName" class="form-control" id="firstName" placeholder="First Name"
+                                    required #firstName="ngModel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                            <div [hidden]="firstName.valid || firstName.pristine">
+                                <span class="text-danger align-middle">
+                                        <i class="fa fa-close"></i>First name is required!
+                                    </span>
+                            </div>
+                        </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i> Last Name: {{oldModel.lastName}}</span>
+                                </div>
+                                <input type="text" [(ngModel)]="model.lastName" name="lastName" class="form-control" id="lastName" placeholder="Last Name"
+                                    required #lastName="ngModel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                            <div [hidden]="lastName.valid || lastName.pristine">
+                                <span class="text-danger align-middle">
+                                        <i class="fa fa-close"></i>Last name is required!
+                                    </span>
+                            </div>
+                        </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-at"></i> Email: {{oldModel.email}}</span>
+                                </div>
+                                <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]="model.email" name="email" required
+                                    #email="ngModel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div [hidden]="email.valid || email.pristine">
+                            <span class="text-danger align-middle">
+                                    <i class="fa fa-close"></i>Email is required!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-phone"></i> Phonenumber: {{oldModel.phoneNumber}}</span>
+                                </div>
+                                <input type="text" class="form-control" id="phoneNumber" placeholder="Phone number" [(ngModel)]="model.phoneNumber" name="phoneNumber" 
+                                    required #phoneNumber="ngModel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div [hidden]="phoneNumber.valid || phoneNumber.pristine">
+                            <span class="text-danger align-middle">
+                                    <i class="fa fa-close"></i> Phone number is required!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-3 field-label-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="model.password"
+                                    #password="ngModel" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div [hidden]="password.valid || password.pristine">
+                            <span class="text-danger align-middle">
+                                <i class="fa fa-close"></i> Password is required!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-md-3 field-label-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-repeat"></i></span>
+                                </div>
+                                <input type="password" name="password-confirmation" class="form-control" id="password-confirm" placeholder="Confirm password" [(ngModel)]="model.password"
+                                    #confirmPassword="ngModel" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div [hidden]="confirmPassword.valid || confirmPassword.pristine">
+                            <span class="text-danger align-middle">
+                                    <i class="fa fa-close"></i> Confirm password is required!
+                                </span>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <button [disabled]="!editForm.form.valid" type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Edit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

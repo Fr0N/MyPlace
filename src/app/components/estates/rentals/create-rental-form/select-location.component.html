@@ -1,0 +1,4 @@
+<agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
+    <agm-marker *ngIf="selectedLocationMarker" [latitude]="selectedLocationMarker.lat" [longitude]="selectedLocationMarker.lng"></agm-marker>
+</agm-map>
+<input class="form-control" type="text" placeholder="{{formatterAddress}}" readonly>

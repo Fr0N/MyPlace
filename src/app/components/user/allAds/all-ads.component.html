@@ -1,0 +1,10 @@
+<div class="container">
+    <br/>
+    <div class="jumbotron" align="center">
+        <ul class="list-group">
+            <li *ngFor="let ad of adsTitles" class="list-group-item">
+                <a routerLink="/adDetail/{{ad._id}}" >{{ad.title}}</a> <a routerLink="/deleteAd/{{ad._id}}" style="color:red"><i class="fa fa-trash"></i>Delete</a>
+            </li>
+        </ul>
+    </div>
+</div>

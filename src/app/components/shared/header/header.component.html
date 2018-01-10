@@ -1,0 +1,51 @@
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">My Place</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a [routerLink]="['/home']" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/map']" class="nav-link" href="#">Map</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <div *ngIf="isLogged">
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-user"> {{username}}</i></button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button [routerLink]="['/allAds']" class="dropdown-item">Your ads</button>
+                            <button [routerLink]="['/editProfile']" class="dropdown-item">Edit profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isLogged">
+                    <li class="nav-item">
+                        <a [routerLink]="['/addRental']" class="nav-link btn btn-outline-primary my-2 my-sm-0" href="#">Add Rental Ad</a>
+                    </li>
+                </div>
+                <div *ngIf="!isLogged">
+                    <li class="nav-item">
+                        <a [routerLink]="['/login']" class="nav-link btn btn-outline-primary my-2 my-sm-0" href="#">Login</a>
+                    </li>
+                </div>
+                <div *ngIf="!isLogged">
+                    <li class="nav-item">
+                        <a [routerLink]="['/register']" class="nav-link btn btn-outline-primary my-2 my-sm-0" href="#">Register</a>
+                    </li>
+                </div>
+                <div *ngIf="isLogged">
+                    <li class="nav-item">
+                        <a [routerLink]="['/logout']" class="nav-link btn btn-outline-primary my-2 my-sm-0" href="#">Logout</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </nav>
+</div>

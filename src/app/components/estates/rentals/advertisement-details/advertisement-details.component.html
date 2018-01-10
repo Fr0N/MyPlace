@@ -1,0 +1,41 @@
+<div class="container">
+    <br/>
+    <div class="jumbotron" align="center" style="background:#97a6b4">
+        <h1>{{model.title}}</h1>
+        <hr/>
+
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let pic of pictures">
+                <img style="height: 300px" src="{{pic._downloadURL}}" alt="Random first slide">
+            </ng-template>
+        </ngb-carousel>
+        <br>
+        <label for="address">Address:</label>
+        <input type="text" class="form-control" id="address" value="{{model.address}}" readonly>
+        <br>
+        <label for="type">Type:</label>
+        <input type="text" class="form-control" id="type" value="{{model.type}}" readonly>
+        <br>
+        <label for="numberOfRooms">Number of rooms:</label>
+        <input type="text" class="form-control" id="numberOfRooms" value="{{model.numberOfRooms}}" readonly>
+        <br>
+        <label for="area">Area:</label>
+        <input type="text" class="form-control" id="area" value="{{model.area}}" readonly>
+        <br>
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" id="price" value="{{model.price}}" readonly>
+        <label for="details">Additional details:</label>
+        <textarea class="form-control" id="details" rows="3" readonly>{{model.details}}</textarea>
+        <br/>
+        <div class="card">
+            <div class="card-header">
+                Contacts:
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{model.sellerFirstName}} {{model.sellerLastName}}</h5>
+                <p>Phonenumber: {{model.sellerPhoneNumber}}</p>
+                <p>Email: {{model.sellerEmail}}</p>
+            </div>
+        </div>
+    </div>
+</div>
